@@ -1,0 +1,64 @@
+@font-face {
+    font-family: DDINBold;
+    src: url(fonts/D-DIN-Bold.otf);
+  }
+@font-face {
+    font-family: DDIN;
+    src: url(fonts/D-DIN.otf);
+}
+*{
+    font-family: DDIN;
+    color: white;
+}
+body{
+    margin: 0px;
+    background-color: #0F0F0F;
+    height: 100vh;
+    padding: 25px;
+}
+main{
+    display: grid;
+    grid-template-columns: calc(20% - 25px) calc(80% - 25px);
+    grid-template-rows: calc(20% - 25px) calc(80% - 25px);
+    grid-gap: 25px;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+    
+}
+#map{
+}
+div{
+    border: 7px solid white;
+    width: 100%;
+    height: 100%;
+    
+}
+#top{
+    grid-column: 1/3;
+    grid-row: 1/2;
+    justify-self: stretch;
+    align-self: center;
+}
+#top img{
+    display: inline;
+    height: 40px;
+}
+#top p{
+    display: inline;
+}
+#jef{
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+#options{
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+@media only screen and (min-width: 834px) and (max-width: 1279px) {
+}
+@media only screen and (min-width: 1280px) and (max-width: 1919px) {
+}
+@media only screen and (min-width: 1920px) {
+}
