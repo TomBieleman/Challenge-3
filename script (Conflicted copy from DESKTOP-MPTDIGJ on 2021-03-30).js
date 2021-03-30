@@ -1,8 +1,6 @@
 // Set api token
 mapboxgl.accessToken = 'pk.eyJ1IjoiamVmZmVwc3RhaW4iLCJhIjoiY2tta2xiNGViMHh6eDJwbWtyMWFrM3FkYSJ9.pUYC3snlmK2mILfT59sKEQ';
-// var long;
-// var lat;
-var land;
+
 // Initialate map
 var map = new mapboxgl.Map({
   container: 'map',
@@ -10,80 +8,36 @@ var map = new mapboxgl.Map({
   center: [4.322840, 52.067101],
   zoom: 11.15
 });
-// geocoder toevoegen
-var geocoder = new MapboxGeocoder({
-  accessToken: mapboxgl.accessToken,
-  types: 'country,region,place,postcode,locality,neighborhood',
-  mapboxgl: mapboxgl
-});
 
-// Zoekbalk
-map.addControl(geocoder, 'top-left');
-
-// Navigatie knoppen
+//Voeg de zoekbalk toe
+map.addControl(
+  new MapboxGeocoder({
+    accessToken: mapboxgl.accessToken,
+    types: 'country,region,place,postcode,locality,neighborhood',
+    mapboxgl: mapboxgl
+  }),
+  'top-left',
+  
+);
 map.addControl(new mapboxgl.NavigationControl());
 
-//De lats en long in de website en var's
-geocoder.on('result', function(response) {
-  document.getElementById('long').innerHTML = response.result.center[0];
-  // long = response.result.center[0];
-  document.getElementById('lat').innerHTML = response.result.center[1];
-  // lat = response.result.center[1];
-  document.getElementById('city').innerHTML = response.result.place_name;
-  // Height();
-  var length = response.result.context.length - 1;
-  console.log(length);
-  land = response.result.context[length].short_code;
-  console.log(land);
-  Country();
+
+
+map.on('result', function(response) {
+  console.log(response);
+// document.getElementById('long').innerHTML = response.result.center[0];
+// document.getElementById('lat').innerHTML = response.result.center[1];
 });
 
-function Country(){
-  var rescountries = "https://restcountries.eu/rest/v2/alpha/" + land;
-  fetch(rescountries)
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(response) {
-    console.log(response);
-    document.getElementById('flag').src = response.flag;
-    document.getElementById('people').innerHTML = response.demonym;
-    var languageTotal;
-    for(var i = 0; i<response.languages.length ; i++){
-      languageTotal = response.languages[i].name + "<br>"
-    }
-    document.getElementById('languages').innerHTML = languageTotal;
-    var currencyTotal;
-    for(var i = 0; i<response.currencies.length ; i++){
-      currencyTotal = response.currencies[i].name + "<br>"
-    }
-    document.getElementById('currency').innerHTML = currencyTotal;
-    var timezoneTotal;
-    for(var i = 0; i<response.timezones.length ; i++){
-      timezoneTotal = response.timezones[i].name + "<br>"
-    }
-    document.getElementById('timezone').innerHTML = timezoneTotal;
-  })
-}
 
-
-
-// function Height(){
-//   var input = {
-//     "lat": "50.2111",
-//     "lon": "134.1233"
-//   };
-//   Algorithmia.client("simRGw7Jt0ILxr8SEGwm6byh0E21")
-//   .algo("Gaploid/Elevation/0.3.6?") // timeout is optional
-//   .pipe(input)
-//   .then(function(output) {
-//     document.getElementById('height').innerHTML = output;
-//   });
-// }
-
-
-
-
+// map.flyTo({
+//   center: [response.result.center[0], response.result.center[1]],
+//   zoom: 12,
+//   speed: 0.5,
+//   essential: true // this animation is considered essential with respect to prefers-reduced-motion
+// });
+  
+  
 
 
 

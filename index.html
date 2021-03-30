@@ -10,6 +10,9 @@
         <script src="script.js" defer></script>
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
         <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script> <!--Geocoder assets-->
+        <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css" />
+        <script src="https://algorithmia.com/v1/clients/js/algorithmia-0.2.1.js" type="text/javascript"></script> <!--Height api-->
 
     </head>
     <body id="body" class="">
@@ -17,12 +20,18 @@
         </nav>
         <main>
             <div id="top">
-                <img src="images\map.png"><p>Location:</p><p id="city"></p>
-                <img src="images\mountain.png"><p>Height:</p><p id="heigth"></p>
-                <img src="images\compass.png"><p>Longitude:</p><p id="long"></p>
-                <img src="images\compass.png"><p>latitude:</p><p id="lat"></p> 
+                <img src="images\map.png"><p>Location:</p><p id="city">Who</p>
+                <!--<img src="images\mountain.png"><p>Height:</p><p id="height">Know's</p>-->
+                <img src="images\compass.png"><p>Longitude:</p><p id="long">I</p>
+                <img src="images\compass.png"><p>latitude:</p><p id="lat">Don't</p> 
             </div>
-            <div id="options"></div>
+            <div id="options">
+                <img id="flag" src="">
+                <p>People: </p><p id="people"></p><br>
+                <p>Languages: </p><p id="languages"></p><br>
+                <p>Currency: </p><p id="currency"></p><br>
+                <p>Timezone: </p><p id="timezone"></p><br>
+            </div>
             <div id="map"></div>
         </main>
         <footer>
