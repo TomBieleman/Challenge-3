@@ -7,7 +7,7 @@ var land;
 var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/mapbox/streets-v11',
-  center: [4.322840, 52.067101],
+  center: [30.2194, 51.2705],
   zoom: 11.15
 });
 // geocoder toevoegen
@@ -48,21 +48,22 @@ function Country(){
     console.log(response);
     document.getElementById('flag').src = response.flag;
     document.getElementById('people').innerHTML = response.demonym;
-    var languageTotal;
+    var languageTotal = "";
     for(var i = 0; i<response.languages.length ; i++){
       languageTotal = languageTotal + " " + response.languages[i].name + "<br>"
     }
     document.getElementById('languages').innerHTML = languageTotal;
-    var currencyTotal;
+    var currencyTotal = "";
     for(var i = 0; i<response.currencies.length ; i++){
       currencyTotal = currencyTotal + " " + response.currencies[i].name + "<br>"
     }
     document.getElementById('currency').innerHTML = currencyTotal;
-    var timezoneTotal;
+    var timezoneTotal = "";
     for(var i = 0; i<response.timezones.length ; i++){
-      timezoneTotal = timezoneTotal + " " + response.timezones[i].name + "<br>"
+      timezoneTotal = timezoneTotal + " " + response.timezones[i] + "<br>"
     }
     document.getElementById('timezone').innerHTML = timezoneTotal;
+    document.getElementById('region').innerHTML = response.subregion;
   })
 }
 
