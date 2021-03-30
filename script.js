@@ -50,17 +50,17 @@ function Country(){
     document.getElementById('people').innerHTML = response.demonym;
     var languageTotal;
     for(var i = 0; i<response.languages.length ; i++){
-      languageTotal = response.languages[i].name + "<br>"
+      languageTotal = languageTotal + " " + response.languages[i].name + "<br>"
     }
     document.getElementById('languages').innerHTML = languageTotal;
     var currencyTotal;
     for(var i = 0; i<response.currencies.length ; i++){
-      currencyTotal = response.currencies[i].name + "<br>"
+      currencyTotal = currencyTotal + " " + response.currencies[i].name + "<br>"
     }
     document.getElementById('currency').innerHTML = currencyTotal;
     var timezoneTotal;
     for(var i = 0; i<response.timezones.length ; i++){
-      timezoneTotal = response.timezones[i].name + "<br>"
+      timezoneTotal = timezoneTotal + " " + response.timezones[i].name + "<br>"
     }
     document.getElementById('timezone').innerHTML = timezoneTotal;
   })
