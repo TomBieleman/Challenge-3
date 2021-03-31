@@ -18,7 +18,7 @@ body{
 main{
     display: grid;
     grid-template-columns: calc(100% - 14px);
-    grid-template-rows: calc(150px + 14px) calc(70% + 14px) auto;
+    grid-template-rows: auto calc(70% + 14px) auto;
     grid-gap: 25px;
     height: 100%;
     margin: 0px;
@@ -34,6 +34,9 @@ main > div{
     justify-self: stretch;
     align-self: center;
     color: white;
+}
+#top div{
+    display: block;
 }
 #top img{
     display: inline-block;
@@ -80,9 +83,9 @@ div.mapboxgl-ctrl-top-right{
 }
 @media only screen and (min-width: 834px) and (max-width: 1279px) {
     main{
-        display: grid;
+    display: grid;
     grid-template-columns: calc(100% - 14px);
-    grid-template-rows: calc(100px + 14px) calc(70% + 14px) auto;
+    grid-template-rows: auto calc(70% + 14px) auto;
     grid-gap: 25px;
     height: 100%;
     margin: 0px;
@@ -93,6 +96,9 @@ div.mapboxgl-ctrl-top-right{
         justify-self: stretch;
         align-self: center;
         color: white;
+    }
+    #top div{
+        display: block;
     }
     #map{
         grid-column: 1/2;
@@ -120,6 +126,9 @@ div.mapboxgl-ctrl-top-right{
         justify-self: stretch;
         align-self: center;
         color: white;
+    }
+    #top div{
+        display: inline-block;
     }
     #map{
         grid-column: 2/3;
@@ -151,6 +160,9 @@ div.mapboxgl-ctrl-top-right{
         justify-self: stretch;
         align-self: center;
         color: white;
+    }
+    #top div{
+        display: inline-block;
     }
     #map{
         grid-column: 2/3;
